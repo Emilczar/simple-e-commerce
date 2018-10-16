@@ -1,0 +1,65 @@
+@mixin rwd($number, $margin) {
+  margin-bottom: $margin;
+  width: ((100% - ($margin * ($number - 1))) / $number);
+  &:nth-child(n) {
+      margin-right: $margin;
+  }
+  &:nth-child(#{$number}n) {
+      margin-right: 0%;
+  }
+}
+
+
+////////////////////////////////////////
+.contener {
+  text-align: center;
+  padding: 2%;
+  display: flex;
+  flex-wrap: wrap;
+  &__item {
+    border: 1px solid grey;
+    border-radius: 5px;
+    box-sizing: border-box;
+    @include rwd(1 ,1%);
+    img {
+            margin-top: 2%;
+            max-width: 70%;
+            max-height: 70%;
+        }
+   }
+}
+@media (min-width: 414px) {
+  .contener {
+    &__item {
+      @include rwd(2 ,1%);
+     }
+  }
+}
+
+@media (min-width: 768px) {
+  .contener {
+    &__item {
+      @include rwd(3 ,1%);
+     }
+  }
+}
+@media (min-width: 1024px) {
+  .contener {
+    &__item {
+      @include rwd(4 ,1%);
+     }
+  }
+}
+
+
+
+//////////////////////////
+
+.basket {
+  position: relative;
+  left: 20px;
+}
+
+h3 {
+  margin-left: 20px;
+}

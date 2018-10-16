@@ -1,0 +1,26 @@
+
+<h1>
+  Koszyk
+</h1>
+<button (click)="checkProducts()" >
+ {{buttonCheck.name}}
+</button>
+<p> {{stan}}</p>
+<div class="contener">
+
+  <div class="contener__item" *ngFor="let item of products; let i=index;" [hidden]="buttonCheck.stan" >
+    <div class="box">
+        <img src="{{item.img}}">
+        <h3>{{item.name}}</h3>
+        <div class="count">
+            <button class="count__signe" (click)="plusStan(i)">+</button>
+            <h4>{{item.count}}</h4>
+            <button class="count__signe" (click)="minusStan(i)">-</button>
+        </div>
+        <p>cena: {{item.count * item.price}}</p>
+    </div>
+
+  </div >
+
+  <p  class="suma" [hidden]="buttonCheck.stan"> SUMA: {{suma}}</p>
+</div>

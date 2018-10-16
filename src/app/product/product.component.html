@@ -1,0 +1,17 @@
+<app-basket class="basket" [products]="koszyk" [suma]="suma" ></app-basket>
+<!-- <app-basket [products]="koszyk" (eventProducts)="eventProduct($event)"></app-basket> -->
+
+
+<div>
+    <h3>PRODUKTY</h3>
+  <div class="contener">
+    <div class="contener__item" *ngFor="let item of dane; let i=index;">
+      <img src={{item.img}} alt="" srcset="">
+      <p>{{item.name}}</p>
+      <p>CENA: {{item.price}} zł</p>
+      <button [hidden]="item.stan"  (click)="addProduct(item.id)">dodaj do koszyka</button>
+
+    </div>
+  </div>
+
+</div>
